@@ -1,4 +1,4 @@
-ROAD MAP<br>
+__BOLD__ ROAD MAP<br>
 Linux fundamentals - :white_check_mark:<br>
 Networking - :white_check_mark:<br>
 Bash scripting - working on it - projects will be saved in "Bash scripting" folder <br>
@@ -15,7 +15,7 @@ CI/CD - :x:<br>
 <br>
 <br>
 <br>
-CERTIFICATIONS<br>
+__BOLD__ CERTIFICATIONS<br>
 Linux administration - :white_check_mark:<br>
 Linux networking - :white_check_mark:<br>
 AZ-900 - be next<br>
