@@ -1,7 +1,7 @@
 __ROADMAP__ <br>
 Linux fundamentals - :white_check_mark:<br>
 Networking - :white_check_mark:<br>
-Bash scripting - working on it - projects will be saved in "Bash scripting" folder <br>
+Bash scripting - working on it - more in "Bash scripting" folder <br>
 Python/Go/Typescript - :x:<br>
 Virtualization - :x:<br>
 Ansible Linux - :x:<br>
