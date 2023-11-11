@@ -1,6 +1,6 @@
-Linux fundamentals - :white_check_mark: \n
-Networking - :white_check_mark:
-Bash scripting - working on it - projects will be saved in "Bash scripting" folder 
+1.Linux fundamentals - :white_check_mark:
+2.Networking - :white_check_mark:
+3.Bash scripting - working on it - projects will be saved in "Bash scripting" folder 
 Python/Go/Typescript - :x:
 Virtualization - :x:
 Ansible Linux - :x:
