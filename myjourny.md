@@ -17,5 +17,5 @@ CI/CD - :x:<br>
 __CERTIFICATIONS__ <br>
 Linux administration - :white_check_mark:<br>
 Linux networking - :white_check_mark:<br>
-AZ-900 - be next<br>
+AZ-900 - waiting for more experience <br>
 
