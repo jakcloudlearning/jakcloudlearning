@@ -1,4 +1,4 @@
-Linux fundamentals - :white_check_mark:
+<br>Linux fundamentals - :white_check_mark:<br>
 Networking - :white_check_mark:
 Bash scripting - working on it - projects will be saved in "Bash scripting" folder 
 Python/Go/Typescript - :x:
