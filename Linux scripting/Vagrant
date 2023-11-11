@@ -1,0 +1,3 @@
+__Vagrant__
+vagrant box add jasonc/centos7  #downloading vm image of centos 7 operating system 
+
