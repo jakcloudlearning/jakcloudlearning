@@ -1,8 +1,8 @@
 __Vagrant__
 vagrant box add username/vm_image  #downloading vm image of operating system, for example jakcloudlearning/rocky9
 
-mkdir vmboxes #creating folder
-cd vmboxes #changing directory to folder that I created
-mkdir box01 #creating another folder box01
-cd box01 #changing directory command to go into box01 folder
+mkdir vmboxes                #creating folder
+cd vmboxes                   #changing directory to folder that I created
+mkdir box01                  #creating another folder box01
+cd box01                     #changing directory command to go into box01 folder
 
