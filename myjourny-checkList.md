@@ -4,7 +4,7 @@ Networking - :white_check_mark:<br>
 Bash scripting - working on it - more in "Bash scripting" folder <br>
 Python/Go/Typescript - :x:<br>
 Virtualization - :x:<br>
-Ansible Linux - :x:<br>
+Ansible - :x:<br>
 SQL fundamentals - :x:<br>
 DevOps concept - :x:<br>
 Docker - :x: - https://roadmap.sh/docker<br>
