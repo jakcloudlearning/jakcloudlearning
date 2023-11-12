@@ -28,14 +28,12 @@ then
    echo "Something went wrong..."
    exit 1
 fi
+passwd -e ${USER_NAME} 
 
 echo "You created user with following credetials:
 full name: ${FULL_NAME}
 login: ${USER_NAME}
 password: ${PASSWORD}
 host: ${HOSTNAME}"
-
-passwd -e ${USER_NAME} 
-
 
 exit 0
