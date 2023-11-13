@@ -22,11 +22,13 @@ then
 fi
 
 PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c10)
+echo ${PASSWORD} | passwd --stdin ${USER_NAME}
 if [[ ${?} -ne 0 ]]
 then
    echo "Something went wrong..."
    exit 1
 fi
+
 passwd -e ${USER_NAME} 
 
 echo "You created user with following credetials:
