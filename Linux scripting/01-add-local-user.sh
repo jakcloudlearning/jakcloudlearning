@@ -13,7 +13,6 @@ fi
 
 read -p 'Type username: ' USER_NAME
 read -p 'Type your full name: ' FULL_NAME
-read -p 'Type your password: ' PASSWORD
 
 useradd -c "${FULL_NAME}" -m ${USER_NAME}
 if [[ ${?} -ne 0 ]]
@@ -22,7 +21,7 @@ then
    exit 1
 fi
 
-echo ${PASSWORD} | passwd --stdin ${USER_NAME}
+PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c10)
 if [[ ${?} -ne 0 ]]
 then
    echo "Something went wrong..."
