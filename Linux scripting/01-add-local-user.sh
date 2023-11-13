@@ -3,7 +3,7 @@
 #author: jakcloudlearning
 #github: https://github.com/jakcloudlearning
 
-#Simple script to create user with some IF statements to check if everything is alright during the creation process.
+#Simple script to create user. I am using some IF statements to check if everything is alright during the creation process. There is also one example of password generation method.
 
 if [[ ${UID} -ne 0 ]]
 then
