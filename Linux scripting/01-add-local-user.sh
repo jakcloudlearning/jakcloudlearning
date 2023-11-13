@@ -20,6 +20,7 @@ then
    echo "You can not create user with the following username: ${USER_NAME}"
    exit 1
 fi
+
 SPECIAL_CHAR=$(echo '!@#$%^&*)(_+=-' | fold -w1 | shuf | head -c1)
 PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c10)${SPECIAL_CHAR}
 echo ${PASSWORD} | passwd --stdin ${USER_NAME}
