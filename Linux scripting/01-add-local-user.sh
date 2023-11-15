@@ -50,12 +50,11 @@ then
    exit 1
 fi
 
-passwd -e ${USER_NAME} 
-
 echo "You created user with following credetials:
 full name: ${COMMENT}
 login: ${USER_NAME}
 password: ${PASSWORD}
 host: ${HOSTNAME}"
-
+echo
+passwd -e ${USER_NAME} 
 exit 0
