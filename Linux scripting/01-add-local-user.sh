@@ -53,7 +53,7 @@ fi
 passwd -e ${USER_NAME} 
 
 echo "You created user with following credetials:
-full name: ${FULL_NAME}
+full name: ${COMMENT}
 login: ${USER_NAME}
 password: ${PASSWORD}
 host: ${HOSTNAME}"
