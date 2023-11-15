@@ -3,18 +3,38 @@
 #author: jakcloudlearning
 #github: https://github.com/jakcloudlearning
 
-#Simple script to create user. I am using some IF statements to check if everything is alright during the creation process. There is also one example of password generation method.
-
+#13.11.23 Simple script to create user. I am using some IF statements to check if everything is alright during the creation process. There is also one example of password generation method.
+#15.11.23 I upgraded this script. So now you can only pass arguments to the script and it will create user with auto-generated password. I also provided "--help" option which will display usage.
 if [[ ${UID} -ne 0 ]]
 then
     echo 'Run this script under root privilages.'
     exit 1
 fi
 
-read -p 'Type username: ' USER_NAME
-read -p 'Type your full name: ' FULL_NAME
+NUMBER_OF_PARAMETERS=${#}
+if [[ ${NUMBER_OF_PARAMETERS} -lt 1 ]]
+then
+   echo "Error: You have to provide at lease 1 argument."
+   echo "Add --help to see more"
+   exit 1
+fi
 
-useradd -c "${FULL_NAME}" -m ${USER_NAME}
+if [[ ${1} = '--help' ]]
+then
+   echo
+   echo "Script for create user with auto-generated password."
+   echo "Usage:"    
+   echo "./01-add-local-user.sh <USER_NAME> <COMMENT>"
+   echo "Argument <COMMENT> is not required."
+   echo
+   exit 1
+fi
+
+USER_NAME=$1
+shift
+COMMENT=$*
+useradd -c "${COMMENT}" -m ${USER_NAME}
+
 if [[ ${?} -ne 0 ]]
 then
    echo "You can not create user with the following username: ${USER_NAME}"
