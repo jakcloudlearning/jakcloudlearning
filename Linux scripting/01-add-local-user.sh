@@ -5,28 +5,24 @@
 
 #13.11.23 Simple script to create user. I am using some IF statements to check if everything is alright during the creation process. There is also one example of password generation method.
 #15.11.23 I upgraded this script. So now you can only pass arguments to the script and it will create user with auto-generated password. I also provided "--help" option which will display usage.
+#19.11.23 All error messages are now displayed on standard error.Output from all other commands are suppresed.
+
 if [[ ${UID} -ne 0 ]]
 then
-    echo 'Run this script under root privilages.'
+    echo 'Run this script under root privilages.' >&2
     exit 1
 fi
 
 NUMBER_OF_PARAMETERS=${#}
 if [[ ${NUMBER_OF_PARAMETERS} -lt 1 ]]
 then
-   echo "Error: You have to provide at lease 1 argument."
-   echo "Add --help to see more"
+   echo "Error: You have to provide at lease 1 argument. Add --help to see more" >&2
    exit 1
 fi
 
 if [[ ${1} = '--help' ]]
 then
-   echo
-   echo "Script for create user with auto-generated password."
-   echo "Usage:"    
-   echo "./01-add-local-user.sh <USER_NAME> <COMMENT>"
-   echo "Argument <COMMENT> is not required."
-   echo
+   echo "Usage: ${0} USER_NAME [COMMENT]" 
    exit 1
 fi
 
@@ -37,16 +33,16 @@ useradd -c "${COMMENT}" -m ${USER_NAME}
 
 if [[ ${?} -ne 0 ]]
 then
-   echo "You can not create user with the following username: ${USER_NAME}"
+   echo "You can not create user with the following username: ${USER_NAME}" >&2
    exit 1
 fi
 
 SPECIAL_CHAR=$(echo '!@#$%^&*)(_+=-' | fold -w1 | shuf | head -c1)
 PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c10)${SPECIAL_CHAR}
-echo ${PASSWORD} | passwd --stdin ${USER_NAME}
+echo ${PASSWORD} | passwd --stdin ${USER_NAME} 1> /dev/null
 if [[ ${?} -ne 0 ]]
 then
-   echo "Something went wrong..."
+   echo "Something went wrong..." >&2
    exit 1
 fi
 
@@ -56,5 +52,5 @@ login: ${USER_NAME}
 password: ${PASSWORD}
 host: ${HOSTNAME}"
 echo
-passwd -e ${USER_NAME} 
+passwd -e ${USER_NAME} 1> /dev/null
 exit 0
