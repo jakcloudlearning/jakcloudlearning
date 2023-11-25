@@ -2,6 +2,7 @@
 
 #author: jakcloudlearning
 #github: https://github.com/jakcloudlearning
+#contact: jakub.cloud.learning@gmail.com:
 
 #13.11.23 Simple script to create user. I am using some IF statements to check if everything is alright during the creation process. There is also one example of password generation method.
 #15.11.23 I upgraded this script. So now you can only pass arguments to the script and it will create user account with auto-generated password. I also provided "--help" option which will display usage.
