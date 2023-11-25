@@ -9,6 +9,8 @@
 #23.11.23 I added function "usage" to avoid duplication in script. There are now 2 options how to print USAGE of the script. First one is with single IF statement and another one is done by getopts.
 #23.11.23 I added new functionality. This script can create/delete/lock/unlock user account. I simply write one function for one operation. I use getopts loop with case statements. 
 #25.11.23 Script updated. Now you can create backup of user's folder. I used tar -tf.
+#25.11.23 Added new option -p to print all users with UID -gt 999 AND -lt 60000
+
 
 usage(){
     echo "Script to create user
@@ -21,6 +23,7 @@ usage(){
 	           -l            lock user account ( sudo ${0} -l USER_NAME )
                    -u            unlock user account ( sudo ${0} -u USER_NAME )
 		   -b            create backup of user's home folder ( sudo ${0} -b USER_NAME)
+                   -p            print all user
 }
 
 create_user(){
@@ -123,6 +126,20 @@ backup(){
    fi
 }
 
+print_all_users(){
+  local NUM_OF_LINES=$(getent passwd | wc -l)
+  local ACTUAL_LINE=1
+  while [[ ${NUM_OF_LINES} -ge ${ACTUAL_LINE} ]]
+  do
+    getent passwd | sed -n "${ACTUAL_LINE}p" > line
+    if [[ $(cut -d ':' -f 3 line) -gt 999 && $(cut -d ':' -f 3 line) -lt 60000 ]]
+    then
+	     echo "$(cut -d ':' -f 1 line)"
+    fi
+    ((ACTUAL_LINE++)) 
+  done 
+}
+
 if [[ ${UID} -ne 0 ]]
 then
     echo 'Run this script under root privilages.' >&2
@@ -142,7 +159,7 @@ then
    exit 1
 fi
 
-while getopts c:d:l:u:h TESTVAR
+while getopts c:d:l:u:hb:p TESTVAR
 do
   case ${TESTVAR} in
     h)
@@ -164,6 +181,10 @@ do
       ;;
     b)
       backup $2
+      ;;
+    p)
+      print_all_users
+      rm -rf line 
       ;;
     ?)
       echo "Invadil option. See '--help' OR '-h'" >&2
