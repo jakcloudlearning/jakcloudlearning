@@ -34,3 +34,6 @@ do
   ((NUM++))
 done
 
+rm -rf helper
+exit 0
+
