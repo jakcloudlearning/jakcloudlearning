@@ -8,6 +8,7 @@
 #19.11.23 All error messages are now displayed on standard error.Output from all other commands are suppresed.
 #23.11.23 I added function "usage" to avoid duplication in script. There are now 2 options how to print USAGE of the script. First one is with single IF statement and another one is done by getopts.
 #23.11.23 I added new functionality. This script can create/delete/lock/unlock user account. I simply write one function for one operation. I use getopts loop with case statements. 
+#25.11.23 Script updated. Now you can create backup of user's folder. I used tar -tf.
 
 usage(){
     echo "Script to create user
@@ -17,8 +18,9 @@ usage(){
                    -h   --help   print usage of the script"
  		   -c            create user ( sudo ${0} -c USER_NAME [COMMENT] ) 
                    -d            delete user ( sudo ${0} -d USER_NAME )
-	           -l            lock user account ( sudo ${0} -d USER_NAME )
-                   -u            unlock user account ( sudo ${0} -d USER_NAME )
+	           -l            lock user account ( sudo ${0} -l USER_NAME )
+                   -u            unlock user account ( sudo ${0} -u USER_NAME )
+		   -b            create backup of user's home folder ( sudo ${0} -b USER_NAME)
 }
 
 create_user(){
@@ -107,6 +109,20 @@ unlock_user(){
    fi
 }
 
+backup(){
+   local USER_NAME=${@}
+   local UID_OF_USER=$(id -u ${USER_NAME} 2>/dev/null)
+   if [[ ${UID_OF_USER} -eq NULL ]]
+   then
+      echo "Error occured. The user ${USER_NAME} do not exist." >&2
+      exit 1
+   else
+      mkdir /vagrant/backups/${USER_NAME} >&2
+      tar -cf /vagrant/backups/${USER_NAME}/"${USER_NAME}.tar" /home/${USER_NAME} >&2 
+      echo "Backup was succesfuly created. Path: /backups/${USER_NAME}"
+   fi
+}
+
 if [[ ${UID} -ne 0 ]]
 then
     echo 'Run this script under root privilages.' >&2
@@ -145,6 +161,9 @@ do
       ;;
     u)
       unlock_user $2
+      ;;
+    b)
+      backup $2
       ;;
     ?)
       echo "Invadil option. See '--help' OR '-h'" >&2
