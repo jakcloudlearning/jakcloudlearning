@@ -4,8 +4,7 @@
 #github: https://github.com/jakcloudlearning
 #contact: jakub.cloud.learning@gmail.com:
 
-#25.11.23 Script for log parsing. Script displays the number of failed login attempts by IP address and location. I used syslog_sample from the github (https://github.com/logpai/loghub). This script will be updated.
-
+#25.11.23 Script for log parsing. Script displays the number of failed login attempts by IP address and location. I used syslog_sample from the github (https://github.com/logpai/loghub).
 LOG_FILE=$1
 if [[ ! -e "${LOG_FILE}" ]]
 then
