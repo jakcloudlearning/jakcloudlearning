@@ -14,6 +14,7 @@ fi
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
+BLUE='\033[0;34m'
 
 for IP in $SERVERS
 do
@@ -21,12 +22,12 @@ do
   if [[ "${?}" -ne 0 ]]
   then 
      echo -e "${RED}$(date +"%m-%d-%y") $(date +"%H:%M:%S") ERROR: Host ${IP} is unreachable. The host may be down or there is a firewall policy to block any icmp requests.${NC}" >> monitoring.log
-     echo "##########################################################################################################################################" >> monitoring.log
+     echo -e "${BLUE}##########################################################################################################################################${NC}" >> monitoring.log
   else
      echo -e "${GREEN}$(date +"%m-%d-%y") $(date +"%H:%M:%S") INFO: Host ${IP} is up. $(ssh     ${IP} hostname) $(ssh ${IP} uptime)${NC}" >> monitoring.log
      echo -e "$(vmstat)\n" >> monitoring.log
      echo -e "$(w | tail -n +2)" >> monitoring.log
-     echo "##########################################################################################################################################" >> monitoring.log
+     echo -e "${BLUE}##########################################################################################################################################${NC}" >> monitoring.log
   fi
 done
 
