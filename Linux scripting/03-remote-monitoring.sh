@@ -1,7 +1,10 @@
 #!/bin/bash
 
-#26.11.23 I set up 3 VMs with vagrant admin1, server1, server2. I updated admin1's /etc/hosts (added mapping IP server), generated ssh-key and created file with names of servers. This script simply check connection with remote servers then it prints some basic information : hostname, status and uptime. I will add more functionality in near future.
-#27.11.23 I added new functionality. Now its a monitoring script which may be run with cron job. Output of commands is pushed into file called monitoring.log. The output is colored based on the type of message.
+#26.11.23 I set up 3 VMs with vagrant admin1, server1, server2. I updated admin1's /etc/hosts (added mapping IP server), generated ssh-key 
+          #and created file with names of servers. This script simply check connection with remote servers then it prints some basic 
+          #information : hostname, status and uptime. I will add more functionality in near future.
+#27.11.23 I added new functionality. Now its a monitoring script which may be run with cron job. Output of commands is pushed into file 
+          #called monitoring.log. The output is colored based on the type of message.
 #27.11.23(later at night) Now it push to monitoring.log also 'vmstat' and 'w'
 
 SERVERS=$(cat /vagrant/servers)
