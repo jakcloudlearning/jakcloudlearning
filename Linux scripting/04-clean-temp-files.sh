@@ -4,7 +4,10 @@
 #github:    https://github.com/jakcloudlearning
 #contact:   jakub.cloud.learning@gmail.com
 
-#30.11.23 This script will be used for cleaning up your temp files. I have an application which is creating a lot of temporary artifacts. Sadly, the artifacts are not automatically deleted by the application when they expire, so the performance of the whole machine goes down. This script will simply read the content of the directory, compare the timestamp and delete all created artifacts that are older than X minutes (10, 20,30 ... It's up to you). There is an option that you can create  backup of those artifacts. This script will be run with cron job.
+#30.11.23 This script will be used for cleaning up your temp files. I have an application which is creating a lot of temporary artifacts. 
+          #Sadly, the artifacts are not automatically deleted by the application when they expire, so the performance of the whole machine goes down. 
+          #This script will simply read the content of the directory, compare the timestamp and delete all created artifacts that are older than X 
+          #minutes (10, 20,30 ... It's up to you). There is an option that you can create  backup of those artifacts. This script will be run with cron job.
 
 usage(){
     echo "Script to create user
