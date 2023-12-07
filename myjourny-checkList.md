@@ -2,7 +2,7 @@ __ROADMAP__ <br>
 Linux fundamentals - :white_check_mark:<br>
 Networking - :white_check_mark:<br>
 Bash scripting - :white_check_mark: - more in "Bash scripting" folder <br>
-Python/Go/Typescript - :x:<br>
+Python/Go/Typescript - currently learning - more in "Python projects" folder (then i will choose Go or Typescript) <br>
 Virtualization - :x:<br>
 Ansible - :x:<br>
 SQL fundamentals - :x:<br>
