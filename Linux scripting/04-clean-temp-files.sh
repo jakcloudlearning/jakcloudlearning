@@ -4,15 +4,15 @@
 #github:    https://github.com/jakcloudlearning
 #contact:   jakub.cloud.learning@gmail.com
 
-<<<<<<< HEAD
-#30.11.23 This script will be used for cleaning up your temp files. I have an application which is creating a lot of temporary artifacts. Sadly, the artifacts are not automatically deleted by the application when they expire, so the performance of the whole machine goes down. This script will simply read the content of the directory, compare the timestamp and delete all created artifacts that are older than X minutes (10, 20,30 ... It's up to you). There is an option that you can create  backup of those artifacts. This script will be run with cron job.
-#7.12.23 The script is done. I changed logic a little bit. Now the path to the temp_folder has to be changed in the script. If you provide option -b it will mv all files that meet the condition to the backup folder, then those files will be compressed to tar.gz extention. If you do not provide option -b it will simply remove all files in temp_folder which meet the condition.
-=======
+
 #30.11.23 This script will be used for cleaning up your temp files. I have an application which is creating a lot of temporary artifacts. 
           #Sadly, the artifacts are not automatically deleted by the application when they expire, so the performance of the whole machine goes down. 
           #This script will simply read the content of the directory, compare the timestamp and delete all created artifacts that are older than X 
-          #minutes (10, 20,30 ... It's up to you). There is an option that you can create  backup of those artifacts. This script will be run with cron job.
->>>>>>> 1967e7a10db6e8c673a210a42630c51526c53ab1
+          #minutes (10, 20,30 ... It's up to you). There is an option that you can create  backup of those artifacts. This script will be run with cron job. created artifacts that are 
+          #older than X minutes (10, 20,30 ... It's up to you). There is an option that you can create  backup of those artifacts. This script will be run with cron job.
+#7.12.23 The script is done. I changed logic a little bit. Now the path to the temp_folder has to be changed in the script. If you provide option -b it will mv all files that 
+          #meet the condition to the backup folder, then those files  will be compressed to tar.gz extention. If you do not provide option -b it will simply remove all files in temp_folder which meet the condition.
+
 
 usage(){
     echo "Script to create user
