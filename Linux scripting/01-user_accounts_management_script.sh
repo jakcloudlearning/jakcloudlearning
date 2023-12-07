@@ -4,11 +4,15 @@
 #github: https://github.com/jakcloudlearning
 #contact: jakub.cloud.learning@gmail.com
 
-#13.11.23 Simple script to create user. I am using some IF statements to check if everything is alright during the creation process. There is also one example of password generation method.
-#15.11.23 I upgraded this script. So now you can only pass arguments to the script and it will create user account with auto-generated password. I also provided "--help" option which will display usage.
+#13.11.23 Simple script to create user. I am using some IF statements to check if everything is alright during the creation process. 
+          #There is also one example of password generation method.
+#15.11.23 I upgraded this script. So now you can only pass arguments to the script and it will create user account with auto-generated password. 
+          #I also provided "--help" option which will display usage.
 #19.11.23 All error messages are now displayed on standard error.Output from all other commands are suppresed.
-#23.11.23 I added function "usage" to avoid duplication in script. There are now 2 options how to print USAGE of the script. First one is with single IF statement and another one is done by getopts.
-#23.11.23 I added new functionality. This script can create/delete/lock/unlock user account. I simply write one function for one operation. I use getopts loop with case statements. 
+#23.11.23 I added function "usage" to avoid duplication in script. There are now 2 options how to print USAGE of the script. 
+          #First one is with single IF statement and another one is done by getopts.
+#23.11.23 I added new functionality. This script can create/delete/lock/unlock user account. 
+          #I simply write one function for one operation. I use getopts loop with case statements. 
 #25.11.23 Script updated. Now you can create backup of user's folder. I used tar -tf.
 #25.11.23 Added new option -p to print all users with UID -gt 999 AND -lt 60000
 
